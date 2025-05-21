@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}CS2 News{% endblock %} {% block content
+%}
+<h1 align="center">CS2 News</h1>
+
+<h2>Latest Update:{{latestupdatetitle}}</h2>
+<h3><a href="{{latestupdateurl}}" target="_blank">{{latestupdatecontent}}</a></h3>
+<h2>Update 2:{{update2title}}</h2>
+<h3><a href="{{update2url}}" target="_blank">{{update2content}}</a></h3>
+<h2>Update 3:{{update3title}}</h2>
+<h3><a href="{{update3url}}" target="_blank">{{update3content}}</a></h3>
+<h2>Update 4:{{update4title}}</h2>
+<h3><a href="{{update4url}}" target="_blank">{{update4content}}</a></h3>
+
+{% endblock %}

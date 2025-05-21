@@ -3,6 +3,11 @@ from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json
+from csnews import (
+    latestupdatetitle, update2title, update3title, update4title,
+    latestupdateurl, update2url, update3url, update4url, latestupdatecontent, update2content, update3content, update4content
+)
+
 
 views = Blueprint('views', __name__)
 
@@ -33,5 +38,9 @@ def delete_note():
         if note.user_id == current_user.id:
             db.session.delete(note)
             db.session.commit()
-
     return jsonify({})
+
+@views.route('/csnews', methods=['GET'])
+@login_required
+def csnews():
+    return render_template("csnews.html", user=current_user, latestupdatetitle=latestupdatetitle, update2title=update2title, update3title=update3title, update4title=update4title, latestupdateurl=latestupdateurl, update2url=update2url, update3url=update3url, update4url=update4url, latestupdatecontent=latestupdatecontent, update2content=update2content, update3content=update3content, update4content=update4content)
