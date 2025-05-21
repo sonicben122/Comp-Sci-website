@@ -14,7 +14,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
-
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='st,small,507x507-pad,600x600,f8f8f8.ico') }}"  />
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body>
@@ -30,9 +30,10 @@
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" id="home" href="/">Home</a>
+          <a class="nav-item nav-link" id="home" href="/">Game Log</a>
           <a class="nav-item nav-link" id="csnews" href="/csnews">CS News</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+          <a class="nav-item nav-link" id="hltv" href="https://www.hltv.org/" target="_blank">HLTV</a>
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
           <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
