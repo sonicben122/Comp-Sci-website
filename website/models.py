@@ -9,6 +9,7 @@ class Note(db.Model):
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     kda = db.Column(db.String(100))
     gamedate = db.Column(db.String(100))
+    kdr = db.Column(db.Float)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 

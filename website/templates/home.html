@@ -4,7 +4,7 @@
 <ul class="list-group list-group-flush" id="notes">
   {% for note in user.notes %}
   <li class="list-group-item">
-    {{ note.gamedate}} - {{ note.kda }} - {{ note.data }}
+    {{ note.gamedate}} - {{ note.kda }} - {{ note.data }} - KDR:{{ note.kdr }}
     <button type="button" class="close" onClick="deleteNote({{ note.id }})">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -31,7 +31,7 @@
       class="form-control"
       id="kda"
       name="kda"
-      placeholder="K-D-A"
+      placeholder="K/D/A"
     />
   </div>
 

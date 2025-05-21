@@ -16,15 +16,20 @@ views = Blueprint('views', __name__)
 @login_required
 def home():
     if request.method == 'POST': 
+        
         note = request.form.get('note')#Gets the note from the HTML
         kda = request.form.get('kda') #Gets the kda from the HTML
         date = request.form.get('date') #Gets the date from the HTML
+
+        k, d, a = kda.split('/') #splits the kda into kills, deaths and assists
+
+        kdr = round(int(k) / int(d), 2) if int(d) != 0 else int(k) #calculates the kdr
     
         
         if len(note) < 1:
             flash('Note is too short!', category='error') 
         else:
-            new_note = Note(data=note, kda=kda, gamedate=date, user_id=current_user.id)  #providing the schema for the note 
+            new_note = Note(data=note, kda=kda, gamedate=date, kdr=kdr, user_id=current_user.id)  #providing the schema for the note 
             db.session.add(new_note) #adding the note to the database 
             db.session.commit()
             flash('Note added!', category='success')
